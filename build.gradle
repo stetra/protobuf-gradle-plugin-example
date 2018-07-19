@@ -1,0 +1,25 @@
+plugins {
+    id "com.google.protobuf" version "0.8.6"
+    id "java"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.protobuf:protobuf-java:3.6.0'
+    
+    protobuf fileTree("protobuf/util/v1")
+    protobuf fileTree("protobuf/util/v2")
+}
+
+protobuf {
+    protoc {
+        // The protobuf compiler, should be compatible with protobuf-java
+        artifact = 'com.google.protobuf:protoc:3.6.0'
+    }
+}
